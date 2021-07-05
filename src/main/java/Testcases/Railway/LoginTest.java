@@ -1,10 +1,16 @@
 package Testcases.Railway;
 
+<<<<<<< HEAD
 import Common.Common.RandomString;
 import Common.Common.Utilities;
 import PageObject.Railway.HomePage;
 import PageObject.Railway.LoginPage;
 import PageObject.Railway.RegisterPage;
+=======
+import Common.Common.Utilities;
+import PageObject.Railway.HomePage;
+import PageObject.Railway.LoginPage;
+>>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
 import com.google.common.base.Verify;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -44,6 +50,10 @@ public class LoginTest {
     @Test(description = "TC01 - User can log into Railway with valid username and password")
     public void TC01(){
         homePage.gotoLoginPage();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         String actualMsg = loginPage.getWelcomeMessage();
         String expectedMsg = String.format(Constant.MSG_WELCOME_USER,Constant.USERNAME);
@@ -80,7 +90,10 @@ public class LoginTest {
     @Test(description = "TC04 - User is redirected to Book ticket page after logging in")
     public void TC04(){
         homePage.gotoBookTicketPage();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
         Verify.verify(loginPage.isLoginExist(),"Page is not displayed");
 
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
@@ -100,6 +113,7 @@ public class LoginTest {
 
         Assert.assertEquals(actualMsg,expectedMsg, "Error message is not displayed as expected");
     }
+<<<<<<< HEAD
 
     @Test(description = "TC06 - User is redirected to Home page after logging out")
     public void TC06(){
@@ -140,4 +154,6 @@ public class LoginTest {
         Assert.assertEquals(actualMsg,expectedMsg,
                 "Error message is not displayed as expected");
     }
+=======
+>>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
 }

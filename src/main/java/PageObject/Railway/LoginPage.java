@@ -44,11 +44,9 @@ public class LoginPage extends GeneralPage{
     public void loginSeveralTimes(String username, String password)
     {
         for (int i=0; i<4; i++){
-<<<<<<< HEAD
         this.login(username,password);
-=======
         this.login(username, password);
->>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
+
         }
     }
 

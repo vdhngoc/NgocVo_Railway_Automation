@@ -10,7 +10,7 @@ public class GeneralPage {
     private final By tabLogin = By.xpath("//a[@href='/Account/Login.cshtml']");
     private final By tabLogout = By.xpath("//a[@href='/Account/Logout']");
     private final By tabBookTicket = By.xpath("//a[@href='/Page/BookTicketPage.cshtml']");
-<<<<<<< HEAD
+
     private final By tabContact = By.xpath("//a[@href='/Page/Contact.cshtml']");
     private final By tabHome = By.xpath("//a[@href='../']");
     private final By tabRegister = By.xpath("//a[@href='/Account/Register.cshtml']");
@@ -18,12 +18,6 @@ public class GeneralPage {
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By formBookTicket = By.xpath("//legend['Book ticket form']");
 
-
-=======
-    private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
-    private final By formBookTicket = By.xpath("//legend['Book ticket form']");
-
->>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
     //Elements
     protected WebElement getTabLogin(){
         return Constant.WEBDRIVER.findElement(tabLogin);
@@ -33,7 +27,6 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(tabLogout);
     }
 
-<<<<<<< HEAD
     protected WebElement getTabBookTicket() { return Constant.WEBDRIVER.findElement(tabBookTicket); }
 
     protected WebElement getTabContact(){
@@ -44,37 +37,26 @@ public class GeneralPage {
         return Constant.WEBDRIVER.findElement(tabRegister);
     }
 
-=======
->>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
     protected WebElement getLblWelcomeMessage(){
         return Constant.WEBDRIVER.findElement(lblWelcomeMessage);
     }
 
-<<<<<<< HEAD
-=======
-    protected WebElement getTabBookTicket() { return Constant.WEBDRIVER.findElement(tabBookTicket); }
->>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
 
     //Methods
     public String getWelcomeMessage() {
         return this.getLblWelcomeMessage().getText();
     }
 
-<<<<<<< HEAD
-    public void gotoLoginPage() { this.getTabLogin().click(); }
-=======
     public LoginPage gotoLoginPage()
     {
         this.getTabLogin().click();
         return new LoginPage();
     }
->>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
 
     public void gotoBookTicketPage() {
         this.getTabBookTicket().click();
     }
 
-<<<<<<< HEAD
     public void gotoContactPage() { this.getTabContact().click(); }
 
     public void gotoRegisterPage() { this.getTabRegister().click(); }
@@ -83,16 +65,10 @@ public class GeneralPage {
 
     public boolean isHomePageExist() { return Constant.WEBDRIVER.findElements(tabHome).size() != 0 ; }
 
-    public void Logout(){
-        if (this.isLogoutExist()) {
-=======
-    public boolean isLogoutTabExist() {
-        return Constant.WEBDRIVER.findElements(tabLogout).size() != 0;
-    }
+    public boolean isLogoutTabExist() { return Constant.WEBDRIVER.findElements(tabLogout).size() != 0; }
 
     public void Logout(){
         if (this.isLogoutTabExist()) {
->>>>>>> 0a2f65b3464f80b2d9456dc90646a0083649da9d
             this.getTabLogout().click();
         }
     }

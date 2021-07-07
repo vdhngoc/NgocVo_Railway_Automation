@@ -1,4 +1,5 @@
 package Common.Constant;
+import Common.Common.Utilities;
 import  org.openqa.selenium.WebDriver;
 
 public class Constant {
@@ -11,6 +12,7 @@ public class Constant {
     public static final String USERNAME_BLANK = "";
     public static final String PASSWORD_INVALID = "1234";
 
+    public static final String REG_EMAIL = "ngocvo+" + Utilities.RandomString() + "@gmail.com";
     public static final String REG_PASSWORD = "12345678";
     public static final String REG_PASSPORT = "12345678";
     public static final String REG_PASSWORD_BLANK = "";

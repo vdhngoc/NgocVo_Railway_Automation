@@ -1,18 +1,14 @@
 package Testcases.Railway;
 
-import Common.Common.Utilities;
-import PageObject.Railway.RegisterPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import Common.Constant.Constant;
-
 
 public class RegisterTest extends TestBase{
 
     @BeforeMethod
     public void BeforeMethod(){
         homePage.open();
-        String email = "ngocvo + " + Utilities.RandomString() + "@gmail.com";
     }
 
     @AfterMethod
@@ -23,7 +19,7 @@ public class RegisterTest extends TestBase{
     @Test(description = "TC07 - User can create new account")
     public void TC07(){
         homePage.gotoRegisterPage();
-        registerPage.register(registerPage.generateEmail(), Constant.REG_PASSWORD, Constant.PASSWORD, Constant.REG_PASSPORT);
+        registerPage.register(Constant.REG_EMAIL, Constant.REG_PASSWORD, Constant.PASSWORD, Constant.REG_PASSPORT);
 
         String actualMsg = registerPage.getRegSuccessMessage();
         String expectedMsg = Constant.MSG_REG_SUCCESS;
@@ -31,10 +27,10 @@ public class RegisterTest extends TestBase{
         Assert.assertEquals(actualMsg, expectedMsg, "Register success message is not displayed as expected");
     }
 
-    @Test(description = "TC08 - User cannot login with an account hasn't been activated")
+    @Test(description = "TC08 - User cannot login with an account has not been activated")
     public void TC08(){
         homePage.gotoRegisterPage();
-        String email = registerPage.generateEmail();
+        String email = Constant.REG_EMAIL;
         registerPage.register(email, Constant.REG_PASSWORD, Constant.REG_PASSWORD, Constant.REG_PASSPORT);
 
         loginPage.gotoLoginPage();
@@ -54,14 +50,13 @@ public class RegisterTest extends TestBase{
 
         String actualMsg = registerPage.getRegErrorMessage();
         String expectedMsg = Constant.MSG_REG_IN_USE_EMAIL;
-
         Assert.assertEquals(actualMsg, expectedMsg, "Register error message is not displayed as expected");
     }
 
     @Test(description = "TC11 = User cannot create account while password and PID fields are empty")
     public void TC11(){
         homePage.gotoRegisterPage();
-        registerPage.register(registerPage.generateEmail(), Constant.REG_PASSWORD_BLANK, Constant.REG_PASSWORD_BLANK, Constant.REG_PASSPORT_BLANK);
+        registerPage.register(Constant.REG_EMAIL, Constant.REG_PASSWORD_BLANK, Constant.REG_PASSWORD_BLANK, Constant.REG_PASSPORT_BLANK);
 
         String actualMsg = registerPage.getRegErrorMessage();
         String expectedMsg = Constant.MSG_REG_FAILED;

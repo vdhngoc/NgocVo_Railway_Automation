@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 public class RegisterPage extends GeneralPage{
 
     //Locators
-    private final By txtRegEmail = By.xpath("//input[@id='email']");
-    private final By txtRegPassword = By.xpath("//input[@id='password']");
-    private final By txtRegConfirmPassword = By.xpath("//input[@id='confirmPassword']");
-    private final By txtRegPassport = By.xpath("//input[@id='pid']");
+    private final By txtRegEmail = By.xpath("//form//li[1]");
+    private final By txtRegPassword = By.xpath("//form//li[2]");
+    private final By txtRegConfirmPassword = By.xpath("//form//li[3]");
+    private final By txtRegPassport = By.xpath("//form//li[4]");
     private final By btnRegister = By.xpath("//input[@value='Register']");
     private final By lblRegErrorMsg = By.xpath("//div[@id='page']//p[@class='message error']");
     private final By lblRegSuccessMsg = By.xpath("//div[@id='content']");
@@ -40,15 +40,13 @@ public class RegisterPage extends GeneralPage{
     //Methods
     public void register (String email, String password, String confirmpassword, String passport)
     {
+        Utilities.PageDownEnd();
         this.getTxtRegEmail().sendKeys(email);
         this.getTxtRegPassword().sendKeys(password);
         this.getTxtRegConfirmPassword().sendKeys(confirmpassword);
         this.getTxtRegPassport().sendKeys(passport);
-        Utilities.PageDownEnd();
         this.getBtnRegister().click();
     }
-
-    public String generateEmail() { return "ngocvo + " + Utilities.RandomString() + "@gmail.com";}
 
     public String getRegErrorMessage() { return getLblRegErrorMsg().getText(); }
 

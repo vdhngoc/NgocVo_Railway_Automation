@@ -7,13 +7,13 @@ import Common.Constant.Constant;
 public class GeneralPage {
 
     //Locators
-    private final By tabLogin = By.xpath("//a[@href='/Account/Login.cshtml']");
-    private final By tabLogout = By.xpath("//a[@href='/Account/Logout']");
-    private final By tabBookTicket = By.xpath("//a[@href='/Page/BookTicketPage.cshtml']");
-    private final By tabContact = By.xpath("//a[@href='/Page/Contact.cshtml']");
-    private final By tabHome = By.xpath("//a[@href='../']");
-    private final By tabRegister = By.xpath("//a[@href='/Account/Register.cshtml']");
-    private final By tabChangePassword = By.xpath("//a[@href='/Account/ChangePassword.cshtml']");
+    private final By tabLogin = By.xpath("//body//li[8]");
+    private final By tabLogout = By.xpath("//body//li[9]");
+    private final By tabBookTicket = By.xpath("//body//li[6]");
+    private final By tabContact = By.xpath("//body//li[3]");
+    private final By tabHome = By.xpath("//body//li[1]");
+    private final By tabRegister = By.xpath("//body//li[7}");
+    private final By tabChangePassword = By.xpath("//body//li[8]");
 
     private final By lblWelcomeMessage = By.xpath("//div[@class='account']/strong");
     private final By formBookTicket = By.xpath("//legend['Book ticket form']");

@@ -4,7 +4,6 @@ import Common.Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import java.util.ConcurrentModificationException;
 import java.util.Random;
 
 public class Utilities {
@@ -17,7 +16,7 @@ public class Utilities {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
 
-        int length = 5;
+        int length = 6;
         for(int i = 0; i < length; i++)
         {
             int index = random.nextInt(alphabet.length());

@@ -104,15 +104,4 @@ public class LoginTest extends TestBase{
         String expectedMsg = Constant.MSG_CHANGE_NOT_MATCH;
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }
-
-    @Test(description = "TC12 = Errors display when password reset token is blank")
-    public void TC12(){
-        ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
-        homePage.gotoLoginPage();
-        loginPage.gotoForgotPasswordPage();
-
-        forgotPasswordPage.submitEmail( Constant.USERNAME );
-    }
-
-
 }

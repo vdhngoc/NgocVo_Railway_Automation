@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Railway_VoDinhHuyNgoc" />
-        <module name="SeleniumLevel1" />
+        <module name="NgocVo_Railway_Automation" />
       </profile>
     </annotationProcessing>
   </component>

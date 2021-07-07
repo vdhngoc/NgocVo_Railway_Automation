@@ -11,7 +11,7 @@ public class LoginPage extends GeneralPage{
     private final By txtUsername = By.xpath("//input[@id='username']");
     private final By txtPassword = By.xpath("//input[@id='password']");
     private final By btnLogin = By.xpath("//input[@value='Login']");
-    private final By lblLoginErrorMsg = By.xpath("//div[@id='content']//p[@class='message error LoginForm']");
+    private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
     private final By linkForgotPasswordPage = By.xpath("//a[@href='/Account/ForgotPassword.cshtml']");
 
     //Elements

@@ -1,35 +1,14 @@
 package Testcases.Railway;
 
-import Common.Common.RandomString;
-import Common.Common.Utilities;
-import PageObject.Railway.HomePage;
-import PageObject.Railway.LoginPage;
-import PageObject.Railway.RegisterPage;
+import PageObject.Railway.ChangePasswordPage;
+import PageObject.Railway.ForgotPasswordPage;
 import com.google.common.base.Verify;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import Common.Constant.Constant;
 
 
-public class LoginTest {
-
-    HomePage homePage = new HomePage();
-    LoginPage loginPage = new LoginPage();
-
-    @BeforeClass
-    public void beforeClass() {
-        System.out.println("Pre-condition");
-        System.setProperty("webdriver.chrome.driver", Utilities.Path);
-        Constant.WEBDRIVER = new ChromeDriver();
-        Constant.WEBDRIVER.manage().window().maximize();
-    }
-
-    @AfterClass
-    public void afterClass() {
-        System.out.println("Post-condition");
-        Constant.WEBDRIVER.quit();
-    }
+public class LoginTest extends TestBase{
 
     @BeforeMethod
     public void BeforeMethod(){
@@ -112,34 +91,28 @@ public class LoginTest {
         Assert.assertFalse(loginPage.isLogoutExist(),"Logout tab is not displayed");
     }
 
-    @Test(description = "TC07 - User can create new account")
-    public void TC07(){
-        RegisterPage registerPage = new RegisterPage();
-        homePage.gotoRegisterPage();
-        registerPage.Register(Constant.REG_EMAIL, Constant.REG_PASSWORD, Constant.REG_CONFIRMPASSWORD, Constant.REG_PASSPORT);
+    @Test(description = "TC09 - User cannot change password when \"New Password\" and \"Confirm Password\" are different")
+    public void TC09(){
+        ChangePasswordPage changePasswordPage = new ChangePasswordPage();
+        homePage.gotoLoginPage();
+        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
-        RandomString random = new RandomString();
-        System.out.println(random);
+        loginPage.gotoChangePasswordPage();
+        changePasswordPage.changePassword(Constant.PASSWORD, Constant.CHANGE_NEW_PW, Constant.CHANGE_CONFIRM_PW);
 
-        String actualMsg = registerPage.getRegisterSuccessMessage();
-        String expectedMsg = Constant.MSG_REG_SUCCESS;
-
-        Assert.assertEquals(actualMsg, expectedMsg, "Register success message is not displayed as expected");
+        String actualMsg = changePasswordPage.getChangePasswordErrorMessage();
+        String expectedMsg = Constant.MSG_CHANGE_NOT_MATCH;
+        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }
 
-    @Test(description = "TC08 - User cannot login with an account hasn't been activated")
-    public void TC08(){
-        RegisterPage registerPage = new RegisterPage();
-        homePage.gotoRegisterPage();
-        registerPage.Register(Constant.REG_EMAIL, Constant.REG_PASSWORD, Constant.REG_CONFIRMPASSWORD, Constant.REG_PASSPORT);
+    @Test(description = "TC12 = Errors display when password reset token is blank")
+    public void TC12(){
+        ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
+        homePage.gotoLoginPage();
+        loginPage.gotoForgotPasswordPage();
 
-        loginPage.gotoLoginPage();
-        loginPage.login(Constant.REG_EMAIL, Constant.REG_PASSWORD);
-
-        String actualMsg = loginPage.getLoginErrorMessage();
-        String expectedMsg = Constant.MSG_LOGIN_INVALID_ACCOUNT;
-
-        Assert.assertEquals(actualMsg,expectedMsg,
-                "Error message is not displayed as expected");
+        forgotPasswordPage.submitEmail( Constant.USERNAME );
     }
+
+
 }

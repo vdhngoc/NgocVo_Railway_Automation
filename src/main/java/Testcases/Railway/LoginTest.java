@@ -1,7 +1,6 @@
 package Testcases.Railway;
 
 import PageObject.Railway.ChangePasswordPage;
-import PageObject.Railway.ForgotPasswordPage;
 import com.google.common.base.Verify;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -24,21 +23,18 @@ public class LoginTest extends TestBase{
     public void TC01(){
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        String actualMsg = loginPage.getWelcomeMessage();
+        String actualMsg = loginPage.getWelcomeMsg();
         String expectedMsg = String.format(Constant.MSG_WELCOME_USER,Constant.USERNAME);
-
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
     }
 
     @Test(description = "TC02 - User cannot login with blank \"Username\" textbox")
     public void TC02(){
         homePage.gotoLoginPage();
-        String username = Constant.USERNAME_BLANK;
+        String username = Constant.DATA_EMPTY;
         loginPage.login(username,Constant.PASSWORD);
-
         String actualMsg = loginPage.getLoginErrorMessage();
-        String expectedMsg = Constant.MSG_LOGIN_INVALID_ACCOUNT;
-
+        String expectedMsg = Constant.MSG_LOGIN_PROBLEM;
         Assert.assertEquals(actualMsg,expectedMsg,
                 "Error message is not displayed as expected");
     }
@@ -48,10 +44,8 @@ public class LoginTest extends TestBase{
         homePage.gotoLoginPage();
         String password = Constant.PASSWORD_INVALID;
         loginPage.login(Constant.USERNAME,password);
-
         String actualMsg = loginPage.getLoginErrorMessage();
         String expectedMsg = Constant.MSG_LOGIN_INVALID_ACCOUNT;
-
         Assert.assertEquals(actualMsg,expectedMsg,
                 "Error message is not displayed as expected");
     }
@@ -60,22 +54,18 @@ public class LoginTest extends TestBase{
     public void TC04(){
         homePage.gotoBookTicketPage();
         Verify.verify(loginPage.isLoginExist(),"Page is not displayed");
-
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-
         Verify.verify(loginPage.isBookTicketExist(),"Page is not displayed");
-        Verify.verify(loginPage.isBookTicketFormExist(),"Form is not displayed");
+        Verify.verify(bookTicketPage.isBookTicketFormExist(),"Form is not displayed");
     }
 
     @Test(description = "TC05 - System shows message when user enters wrong password several times")
     public void TC05(){
         homePage.gotoLoginPage();
-        String password = Constant.PASSWORD_BLANK;
+        String password = Constant.DATA_EMPTY;
         loginPage.loginSeveralTimes(Constant.USERNAME, password);
-
         String actualMsg = loginPage.getLoginErrorMessage();
         String expectedMsg = Constant.MSG_LOGIN_SEVERAL_TIMES;
-
         Assert.assertEquals(actualMsg,expectedMsg, "Error message is not displayed as expected");
     }
 
@@ -83,25 +73,20 @@ public class LoginTest extends TestBase{
     public void TC06(){
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-
         loginPage.gotoContactPage();
         loginPage.Logout();
-
         Verify.verify(loginPage.isHomePageExist(),"Page is not displayed");
-        Assert.assertFalse(loginPage.isLogoutExist(),"Logout tab is not displayed");
+        Assert.assertFalse(loginPage.isLogoutExist(),"Logout tab still displayed");
     }
 
-    @Test(description = "TC09 - User cannot change password when \"New Password\" and \"Confirm Password\" are different")
-    public void TC09(){
-        ChangePasswordPage changePasswordPage = new ChangePasswordPage();
-        homePage.gotoLoginPage();
-        loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-
-        loginPage.gotoChangePasswordPage();
-        changePasswordPage.changePassword(Constant.PASSWORD, Constant.CHANGE_NEW_PW, Constant.CHANGE_CONFIRM_PW);
-
-        String actualMsg = changePasswordPage.getChangePasswordErrorMessage();
-        String expectedMsg = Constant.MSG_CHANGE_NOT_MATCH;
-        Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
+    @Test(description = "TC08 - User cannot login with an account has not been activated")
+    public void TC08(){
+        homePage.gotoRegisterPage();
+        String email = Constant.REG_EMAIL;
+        registerPage.register(email, Constant.REG_PASSWORD, Constant.REG_PASSWORD, Constant.REG_PASSPORT);
+        loginPage.gotoLoginPage();
+        loginPage.login(email, Constant.REG_PASSWORD);
+        Assert.assertTrue(loginPage.isLoginErrorMessageExist(),
+                "Error message is not displayed as expected");
     }
 }

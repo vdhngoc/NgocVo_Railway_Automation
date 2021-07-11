@@ -1,7 +1,6 @@
 package PageObject.Railway;
 
 import Common.Constant.Constant;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -38,6 +37,8 @@ public class LoginPage extends GeneralPage{
     public WebElement getLinkForgotPasswordPage() { return Constant.WEBDRIVER.findElement(linkForgotPasswordPage); }
 
     //Methods
+    public boolean isLoginErrorMessageExist() { return Constant.WEBDRIVER.findElements(lblLoginErrorMsg).size() != 0 ; }
+
     public HomePage login(String username, String password)
     {
         this.getTxtUsername().sendKeys(username);
@@ -46,17 +47,18 @@ public class LoginPage extends GeneralPage{
         return new HomePage();
     }
 
-    public HomePage loginSeveralTimes(String username, String password)
+    public void loginSeveralTimes(String username, String password)
     {
         for (int i=0; i<4; i++){
         this.login(username,password);
         }
-        return new HomePage();
     }
 
     public String getLoginErrorMessage(){
         return getLblLoginErrorMsg().getText();
     }
 
-    public void gotoForgotPasswordPage() { this.getLinkForgotPasswordPage().click(); }
+    public void gotoForgotPasswordPage() {
+        this.getLinkForgotPasswordPage().click();
+    }
 }

@@ -18,13 +18,17 @@ public class Constant {
     public static final String CHANGE_NEW_PW = "a123:\"/{}!@$\\";
     public static final String CHANGE_CONFIRM_PW = "b456:\"/{}!@$\\";
 
-    public static final String HOME = "Welcome to Safe Railway";
+    public static final String HOME = "Safe Railway - Selenium Automation";
+    public static final String BOOK_TICKET = "Safe Railway - Book Ticket";
+    public static final String REGISTER_CONFIRM = "Safe Railway - Registration Confirmation Page";
+    public static final String FORGOT_PASSWORD = "Safe Railway - Forget Your Password?";
 
     public static String BOOK_TICKET_DEPART_DATE = Utilities.SetDepartDate();
     public static final int NUMBER_OF_DATE = 5;
     public static final String NHA_TRANG = "Nha Trang";
     public static final String SAI_GON = "Sài Gòn";
     public static final String DA_NANG = "Đà Nẵng";
+    public static final String PHAN_THIET = "Phan Thiết";
     public static final String BOOK_TICKET_SEAT_TYPE = "Soft seat with air conditioner";
     public static final String BOOK_TICKET_TICKET_AMOUNT = "5";
 

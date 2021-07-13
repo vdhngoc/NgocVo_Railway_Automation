@@ -1,6 +1,6 @@
 package PageObject.Railway;
 
-import Common.Constant.Constant;
+import Common.Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -11,9 +11,9 @@ public class ForgotPasswordPage extends GeneralPage{
     private final By btnForgotPassword = By.xpath("//input[@type='submit']");
 
     //Elements
-    public WebElement getEmailElement() { return Constant.WEBDRIVER.findElement(txtEmail); }
+    public WebElement getEmailElement() { return Utilities.FindElement(txtEmail); }
 
-    public WebElement getForgotPasswordElement() { return Constant.WEBDRIVER.findElement(btnForgotPassword); }
+    public WebElement getForgotPasswordElement() { return Utilities.FindElement(btnForgotPassword); }
 
     //Methods
     public void submitEmail (String email)

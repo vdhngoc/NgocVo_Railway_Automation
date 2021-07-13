@@ -1,6 +1,6 @@
 package PageObject.Railway;
 
-import Common.Constant.Constant;
+import Common.Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -15,17 +15,17 @@ public class TicketPricePage extends GeneralPage {
     private final By cellSBC = By.xpath("//table[@class='MyTable MedTable']/tbody/tr[2]/following-sibling::tr/td[6]");
 
     //Elements
-    public WebElement getHSElement() { return Constant.WEBDRIVER.findElement(cellHS); }
+    public WebElement getHSElement() { return Utilities.FindElement(cellHS); }
 
-    public WebElement getSSElement() { return Constant.WEBDRIVER.findElement(cellSS); }
+    public WebElement getSSElement() { return Utilities.FindElement(cellSS); }
 
-    public WebElement getSSCElement() { return Constant.WEBDRIVER.findElement(cellSSC); }
+    public WebElement getSSCElement() { return Utilities.FindElement(cellSSC); }
 
-    public WebElement getHBElement() { return Constant.WEBDRIVER.findElement(cellHB); }
+    public WebElement getHBElement() { return Utilities.FindElement(cellHB); }
 
-    public WebElement getSBElement() { return Constant.WEBDRIVER.findElement(cellSB); }
+    public WebElement getSBElement() { return Utilities.FindElement(cellSB); }
 
-    public WebElement getSBCElement() { return Constant.WEBDRIVER.findElement(cellSBC); }
+    public WebElement getSBCElement() { return Utilities.FindElement(cellSBC); }
 
     //Methods
     public String getHS() { return this.getHSElement().getText(); }

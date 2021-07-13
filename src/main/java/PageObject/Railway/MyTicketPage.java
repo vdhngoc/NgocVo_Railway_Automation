@@ -1,25 +1,30 @@
 package PageObject.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebElement;
 
 public class MyTicketPage extends GeneralPage {
 
     //Locators
-    private final By row = By.xpath("//table//tr[2]");
 
     //Elements
 
     //Methods
-    public By cancelTicket (String departstation, String arrivestation) {
-        String OperationXpath ="//tr/td[2][contains(text(),'"+departstation+"')]/following-sibling::td[contains(text(),'"+arrivestation+"')]/ancestor::tr/td[11]";
-        By btnOperation = By.xpath(OperationXpath);
-        Constant.WEBDRIVER.findElement(btnOperation).click();
-        Alert alert = Constant.WEBDRIVER.switchTo().alert();
-        alert.accept();
-        return btnOperation;
+    public void cancelTicket (String departstation, String arrivestation) {
+        Utilities.ScrollAndClickIntoView(getCancelTicketElement(departstation, arrivestation));
+        Constant.WEBDRIVER.switchTo().alert().accept();
     }
 
-    public boolean isRowDisplayed() { return Constant.WEBDRIVER.findElements(row).size() != 0 ; }
+    public WebElement getCancelTicketElement(String departstation, String arrivestation){
+        String OperationXpath ="//tr/td[2][contains(text(),'"+departstation+"')]/following-sibling::td[contains(text(),'"+arrivestation+"')]/ancestor::tr/td[11]";
+        By btnOperation = By.xpath(OperationXpath);
+        return Utilities.FindElement(btnOperation);
+    }
+
+    public boolean isRowDisplayed(String departstation, String arrivestation) {
+        String OperationXpath ="//tr/td[2][contains(text(),'"+departstation+"')]/following-sibling::td[contains(text(),'"+arrivestation+"')]/ancestor::tr/td[1]";
+        By btnOperation = By.xpath(OperationXpath);
+        return Constant.WEBDRIVER.findElements(btnOperation).size() != 0 ; }
 }

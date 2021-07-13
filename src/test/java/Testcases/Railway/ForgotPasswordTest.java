@@ -1,6 +1,8 @@
 package Testcases.Railway;
 
+import Common.Common.Utilities;
 import PageObject.Railway.ForgotPasswordPage;
+import jdk.jshell.execution.Util;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import Common.Constant.Constant;
@@ -21,6 +23,7 @@ public class ForgotPasswordTest extends TestBase{
         homePage.gotoLoginPage();
         loginPage.gotoForgotPasswordPage();
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
+        Assert.assertTrue(Utilities.CheckPageOpened(Constant.FORGOT_PASSWORD),"Page is not displayed");
         forgotPasswordPage.submitEmail( Constant.USERNAME );
         Assert.assertFalse(serverError.isServerErrorDisplayed(),"Testcase is blocked.");
     }
@@ -30,6 +33,7 @@ public class ForgotPasswordTest extends TestBase{
         homePage.gotoLoginPage();
         loginPage.gotoForgotPasswordPage();
         ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
+        Assert.assertTrue(Utilities.CheckPageOpened(Constant.FORGOT_PASSWORD),"Page is not displayed");
         forgotPasswordPage.submitEmail( Constant.USERNAME );
         Assert.assertFalse(serverError.isServerErrorDisplayed(),"Testcase is blocked.");
     }

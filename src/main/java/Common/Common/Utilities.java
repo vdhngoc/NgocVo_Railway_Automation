@@ -34,9 +34,9 @@ public class Utilities {
 
     public static boolean CheckPageOpened(String pageName){
         if(pageName.equals(Constant.HOME)){
-            By lblWelcome = By.cssSelector("h1");
+            By lblWelcome = By.xpath("//h1");
             String getLblWelcome = Constant.WEBDRIVER.findElement(lblWelcome).getText();
-            return getLblWelcome.contains("Welcome to safe Railway");
+            return getLblWelcome.contains("Welcome to Safe Railway");
         }
         return Constant.WEBDRIVER.getTitle().contains(pageName);
     }
@@ -51,9 +51,10 @@ public class Utilities {
         return dateFormat.format(dt);
     }
 
-    public static void ScrollIntoView(WebElement element){
+    public static void ScrollAndClickIntoView(WebElement element){
         JavascriptExecutor je = (JavascriptExecutor) Constant.WEBDRIVER;
         je.executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
     }
 
     public static WebElement FindElement(By Locator){

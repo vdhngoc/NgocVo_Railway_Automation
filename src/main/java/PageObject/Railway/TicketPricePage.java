@@ -15,28 +15,28 @@ public class TicketPricePage extends GeneralPage {
     private final By cellSBC = By.xpath("//table[@class='MyTable MedTable']/tbody/tr[2]/following-sibling::tr/td[6]");
 
     //Elements
-    public WebElement getCellHS() { return Constant.WEBDRIVER.findElement(cellHS); }
+    public WebElement getHSElement() { return Constant.WEBDRIVER.findElement(cellHS); }
 
-    public WebElement getCellSS() { return Constant.WEBDRIVER.findElement(cellSS); }
+    public WebElement getSSElement() { return Constant.WEBDRIVER.findElement(cellSS); }
 
-    public WebElement getCellSSC() { return Constant.WEBDRIVER.findElement(cellSSC); }
+    public WebElement getSSCElement() { return Constant.WEBDRIVER.findElement(cellSSC); }
 
-    public WebElement getCellHB() { return Constant.WEBDRIVER.findElement(cellHB); }
+    public WebElement getHBElement() { return Constant.WEBDRIVER.findElement(cellHB); }
 
-    public WebElement getCellSB() { return Constant.WEBDRIVER.findElement(cellSB); }
+    public WebElement getSBElement() { return Constant.WEBDRIVER.findElement(cellSB); }
 
-    public WebElement getCellSBC() { return Constant.WEBDRIVER.findElement(cellSBC); }
+    public WebElement getSBCElement() { return Constant.WEBDRIVER.findElement(cellSBC); }
 
     //Methods
-    public String getHS() { return this.getCellHS().getText(); }
+    public String getHS() { return this.getHSElement().getText(); }
 
-    public String getSS() { return this.getCellSS().getText(); }
+    public String getSS() { return this.getSSElement().getText(); }
 
-    public String getSSC() { return this.getCellSSC().getText(); }
+    public String getSSC() { return this.getSSCElement().getText(); }
 
-    public String getHB() { return this.getCellHB().getText(); }
+    public String getHB() { return this.getHBElement().getText(); }
 
-    public String getSB() { return this.getCellSB().getText(); }
+    public String getSB() { return this.getSBElement().getText(); }
 
-    public String getSBC() { return this.getCellSBC().getText(); }
+    public String getSBC() { return this.getSBCElement().getText(); }
 }

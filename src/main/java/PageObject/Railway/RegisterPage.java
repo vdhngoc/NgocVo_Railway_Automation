@@ -8,53 +8,53 @@ import org.openqa.selenium.WebElement;
 public class RegisterPage extends GeneralPage{
 
     //Locators
-    private final By txtRegEmail = By.xpath("//input[@id='email']");
-    private final By txtRegPassword = By.xpath("//input[@id='password']");
-    private final By txtRegConfirmPassword = By.xpath("//input[@id='confirmPassword']");
-    private final By txtRegPassport = By.xpath("//input[@id='pid']");
+    private final By txtRegisterEmail = By.id("email");
+    private final By txtRegisterPassword = By.id("password");
+    private final By txtRegisterConfirmPassword = By.id("confirmPassword");
+    private final By txtRegisterPassport = By.id("pid");
     private final By btnRegister = By.xpath("//input[@value='Register']");
-    private final By lblRegErrorMsg = By.xpath("//div[@id='page']//p[@class='message error']");
-    private final By lblRegSuccessMsg = By.xpath("//div[@id='content']");
-    private final By lblRegInvalidPasswordMsg = By.xpath("//label[@for='password'] [@class='validation-error']");
-    private final By lblRegInvalidPassportMsg = By.xpath("//label[@for='pid'] [@class='validation-error']");
+    private final By lblRegisterErrorMsg = By.xpath("//div[@id='page']//p[@class='message error']");
+    private final By lblRegisterSuccessMsg = By.id("content");
+    private final By lblRegisterInvalidPasswordMsg = By.xpath("//label[@for='password'] [@class='validation-error']");
+    private final By lblRegisterInvalidPassportMsg = By.xpath("//label[@for='pid'] [@class='validation-error']");
 
     //Elements
-    public WebElement getTxtRegEmail() { return Constant.WEBDRIVER.findElement(txtRegEmail); }
+    public WebElement getRegisterEmailElement() { return Constant.WEBDRIVER.findElement(txtRegisterEmail); }
 
-    public WebElement getTxtRegPassword() { return Constant.WEBDRIVER.findElement(txtRegPassword); }
+    public WebElement getRegisterPasswordElement() { return Constant.WEBDRIVER.findElement(txtRegisterPassword); }
 
-    public WebElement getTxtRegConfirmPassword() { return Constant.WEBDRIVER.findElement(txtRegConfirmPassword); }
+    public WebElement getRegisterConfirmPasswordElement() { return Constant.WEBDRIVER.findElement(txtRegisterConfirmPassword); }
 
-    public WebElement getTxtRegPassport() { return Constant.WEBDRIVER.findElement(txtRegPassport); }
+    public WebElement getRegisterPassportElement() { return Constant.WEBDRIVER.findElement(txtRegisterPassport); }
 
-    public WebElement getBtnRegister() { return Constant.WEBDRIVER.findElement(btnRegister); }
+    public WebElement getRegisterElement() { return Constant.WEBDRIVER.findElement(btnRegister); }
 
-    public WebElement getLblRegErrorMsg() { return Constant.WEBDRIVER.findElement(lblRegErrorMsg); }
+    public WebElement getRegisterErrorMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg); }
 
-    public WebElement getLblRegSuccessMsg() { return Constant.WEBDRIVER.findElement(lblRegSuccessMsg); }
+    public WebElement getRegisterSuccessMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterSuccessMsg); }
 
-    public WebElement getLblRegInvalidPasswordMsg() { return Constant.WEBDRIVER.findElement(lblRegInvalidPasswordMsg); }
+    public WebElement getRegisterInvalidPasswordMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterInvalidPasswordMsg); }
 
-    public WebElement getLblRegInvalidPassportMsg() { return Constant.WEBDRIVER.findElement(lblRegInvalidPassportMsg); }
+    public WebElement getRegisterInvalidPassportMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterInvalidPassportMsg); }
 
     //Methods
     public void register (String email, String password, String confirmpassword, String passport)
     {
         Utilities.PageDownEnd();
-        this.getTxtRegEmail().sendKeys(email);
-        this.getTxtRegPassword().sendKeys(password);
-        this.getTxtRegConfirmPassword().sendKeys(confirmpassword);
-        this.getTxtRegPassport().sendKeys(passport);
-        this.getBtnRegister().click();
+        this.getRegisterEmailElement().sendKeys(email);
+        this.getRegisterPasswordElement().sendKeys(password);
+        this.getRegisterConfirmPasswordElement().sendKeys(confirmpassword);
+        this.getRegisterPassportElement().sendKeys(passport);
+        this.getRegisterElement().click();
     }
 
-    public String getRegErrorMessage() { return getLblRegErrorMsg().getText(); }
+    public String getRegisterErrorMessage() { return getRegisterErrorMsgElement().getText(); }
 
-    public String getRegSuccessMessage(){
-        return getLblRegSuccessMsg().getText();
+    public String getRegisterSuccessMessage(){
+        return getRegisterSuccessMsgElement().getText();
     }
 
-    public String getRegInvalidPasswordMsg() { return getLblRegInvalidPasswordMsg().getText(); }
+    public String getRegisterInvalidPasswordMsg() { return getRegisterInvalidPasswordMsgElement().getText(); }
 
-    public String getRegInvalidPassportMsg() { return getLblRegInvalidPassportMsg().getText(); }
+    public String getRegisterInvalidPassportMsg() { return getRegisterInvalidPassportMsgElement().getText(); }
 }

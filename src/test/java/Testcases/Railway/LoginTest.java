@@ -1,6 +1,5 @@
 package Testcases.Railway;
 
-import PageObject.Railway.ChangePasswordPage;
 import com.google.common.base.Verify;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -82,10 +81,10 @@ public class LoginTest extends TestBase{
     @Test(description = "TC08 - User cannot login with an account has not been activated")
     public void TC08(){
         homePage.gotoRegisterPage();
-        String email = Constant.REG_EMAIL;
-        registerPage.register(email, Constant.REG_PASSWORD, Constant.REG_PASSWORD, Constant.REG_PASSPORT);
+        String email = Constant.REGISTER_EMAIL;
+        registerPage.register(email, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSPORT);
         loginPage.gotoLoginPage();
-        loginPage.login(email, Constant.REG_PASSWORD);
+        loginPage.login(email, Constant.REGISTER_PASSWORD);
         Assert.assertTrue(loginPage.isLoginErrorMessageExist(),
                 "Error message is not displayed as expected");
     }

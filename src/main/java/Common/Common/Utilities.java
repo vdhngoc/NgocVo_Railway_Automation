@@ -1,11 +1,11 @@
 package Common.Common;
 
 import Common.Constant.Constant;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class Utilities {
@@ -49,5 +49,24 @@ public class Utilities {
         c.add(Calendar.DATE,Constant.NUMBER_OF_DATE);
         dt = c.getTime();
         return dateFormat.format(dt);
+    }
+
+    public static void ScrollIntoView(WebElement element){
+        JavascriptExecutor je = (JavascriptExecutor) Constant.WEBDRIVER;
+        je.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public static WebElement FindElement(By Locator){
+        WebElement element = null;
+        try{
+            element = Constant.WEBDRIVER.findElement(Locator);
+        }
+        catch (NoSuchElementException e){
+            System.out.println(e.getMessage());
+        }
+        catch (StaleElementReferenceException e){
+            System.out.println(e.getMessage());
+        }
+        return  element;
     }
 }

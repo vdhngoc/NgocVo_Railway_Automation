@@ -19,7 +19,7 @@ public class ChangePasswordTest extends TestBase{
         loginPage.gotoChangePasswordPage();
         changePasswordPage.changePassword(Constant.PASSWORD, Constant.CHANGE_NEW_PW, Constant.CHANGE_CONFIRM_PW);
 
-        String actualMsg = changePasswordPage.getChangePasswordErrorMessage();
+        String actualMsg = changePasswordPage.getChangePasswordErrorMsg();
         String expectedMsg = Constant.MSG_CHANGE_NOT_MATCH;
         Assert.assertEquals(actualMsg, expectedMsg, "Welcome message is not displayed as expected");
 

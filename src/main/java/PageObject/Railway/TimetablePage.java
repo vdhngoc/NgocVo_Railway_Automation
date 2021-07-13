@@ -14,7 +14,6 @@ public class TimetablePage extends GeneralPage {
     public TimetablePage gotoCheckPriceLink(String departstation, String arrivestation)
     {
         Constant.WEBDRIVER.findElement(By.xpath("//tr/td[2][contains(text(),'"+departstation+"')]/following-sibling::td[contains(text(),'"+arrivestation+"')]/ancestor::tr/td[6]")).click();
-        Constant.WEBDRIVER.findElement(By.xpath("//tr/td[2][contains(text(),'"+departstation+"')]/following-sibling::td[contains(text(),'"+arrivestation+"')]/ancestor::tr/td[6]")).sendKeys(Keys.ENTER);
         return new TimetablePage();
     }
 }

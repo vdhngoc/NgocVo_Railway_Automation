@@ -9,6 +9,7 @@ public class RegisterTest extends TestBase{
     @BeforeMethod
     public void BeforeMethod(){
         homePage.open();
+        homePage.gotoRegisterPage();
     }
 
     @AfterMethod
@@ -18,37 +19,34 @@ public class RegisterTest extends TestBase{
 
     @Test(description = "TC07 - User can create new account")
     public void TC07(){
-        homePage.gotoRegisterPage();
-        registerPage.register(Constant.REG_EMAIL, Constant.REG_PASSWORD, Constant.PASSWORD, Constant.REG_PASSPORT);
-        String actualMsg = registerPage.getRegSuccessMessage();
-        String expectedMsg = Constant.MSG_REG_SUCCESS;
+        registerPage.register(Constant.REGISTER_EMAIL, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSPORT);
+        String actualMsg = registerPage.getRegisterSuccessMessage();
+        String expectedMsg = Constant.MSG_REGISTER_SUCCESS;
         Assert.assertEquals(actualMsg, expectedMsg, "Register success message is not displayed as expected");
     }
 
     @Test(description = "TC10 - User cannot create account with an already in-use email")
     public void TC10(){
-        homePage.gotoRegisterPage();
-        registerPage.register(Constant.USERNAME, Constant.REG_PASSWORD, Constant.REG_PASSWORD, Constant.REG_PASSPORT);
-        String actualMsg = registerPage.getRegErrorMessage();
-        String expectedMsg = Constant.MSG_REG_IN_USE_EMAIL;
+        registerPage.register(Constant.USERNAME, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSPORT);
+        String actualMsg = registerPage.getRegisterErrorMessage();
+        String expectedMsg = Constant.MSG_REGISTER_IN_USE_EMAIL;
         Assert.assertEquals(actualMsg, expectedMsg, "Register error message is not displayed as expected");
     }
 
     @Test(description = "TC11 = User cannot create account while password and PID fields are empty")
     public void TC11(){
-        homePage.gotoRegisterPage();
-        registerPage.register(Constant.REG_EMAIL, Constant.DATA_EMPTY, Constant.DATA_EMPTY, Constant.DATA_EMPTY);
+        registerPage.register(Constant.REGISTER_EMAIL, Constant.DATA_EMPTY, Constant.DATA_EMPTY, Constant.DATA_EMPTY);
 
-        String actualMsg = registerPage.getRegErrorMessage();
-        String expectedMsg = Constant.MSG_REG_FAILED;
+        String actualMsg = registerPage.getRegisterErrorMessage();
+        String expectedMsg = Constant.MSG_REGISTER_FAILED;
         Assert.assertEquals(actualMsg, expectedMsg, "Register error message is not displayed as expected");
 
-        String actualPasswordMsg = registerPage.getRegInvalidPasswordMsg();
-        String expectedPasswordMsg = Constant.MSG_REG_INVALID_PASSWORD;
+        String actualPasswordMsg = registerPage.getRegisterInvalidPasswordMsg();
+        String expectedPasswordMsg = Constant.MSG_REGISTER_INVALID_PASSWORD;
         Assert.assertEquals(actualPasswordMsg, expectedPasswordMsg, "Register invalid password error message is not displayed as expected");
 
-        String actualPassportMsg = registerPage.getRegInvalidPassportMsg();
-        String expectedPassportMsg = Constant.MSG_REG_INVALID_PASSPORT;
+        String actualPassportMsg = registerPage.getRegisterInvalidPassportMsg();
+        String expectedPassportMsg = Constant.MSG_REGISTER_INVALID_PASSPORT;
         Assert.assertEquals(actualPassportMsg, expectedPassportMsg, "Register invalid passport error message is not displayed as expected");
     }
 }

@@ -11,39 +11,39 @@ public class LoginPage extends GeneralPage{
     private final By txtPassword = By.xpath("//input[@id='password']");
     private final By btnLogin = By.xpath("//input[@value='Login']");
     private final By lblLoginErrorMsg = By.xpath("//p[@class='message error LoginForm']");
-    private final By linkForgotPasswordPage = By.xpath("//a[@href='/Account/ForgotPassword.cshtml']");
+    private final By linkForgotPassword = By.xpath("//a[@href='/Account/ForgotPassword.cshtml']");
 
     //Elements
-    public WebElement getTxtUsername()
+    public WebElement getUsernameElement()
     {
         return Constant.WEBDRIVER.findElement(txtUsername);
     }
 
-    public WebElement getTxtPassword()
+    public WebElement getPasswordElement()
     {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getBtnLogin()
+    public WebElement getLoginElement()
     {
         return Constant.WEBDRIVER.findElement(btnLogin);
     }
 
-    public WebElement getLblLoginErrorMsg()
+    public WebElement getLoginErrorMsgElement()
     {
         return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
     }
 
-    public WebElement getLinkForgotPasswordPage() { return Constant.WEBDRIVER.findElement(linkForgotPasswordPage); }
+    public WebElement getForgotPasswordElement() { return Constant.WEBDRIVER.findElement(linkForgotPassword); }
 
     //Methods
     public boolean isLoginErrorMessageExist() { return Constant.WEBDRIVER.findElements(lblLoginErrorMsg).size() != 0 ; }
 
     public HomePage login(String username, String password)
     {
-        this.getTxtUsername().sendKeys(username);
-        this.getTxtPassword().sendKeys(password);
-        this.getBtnLogin().click();
+        this.getUsernameElement().sendKeys(username);
+        this.getPasswordElement().sendKeys(password);
+        this.getLoginElement().click();
         return new HomePage();
     }
 
@@ -55,10 +55,10 @@ public class LoginPage extends GeneralPage{
     }
 
     public String getLoginErrorMessage(){
-        return getLblLoginErrorMsg().getText();
+        return getLoginErrorMsgElement().getText();
     }
 
     public void gotoForgotPasswordPage() {
-        this.getLinkForgotPasswordPage().click();
+        this.getForgotPasswordElement().click();
     }
 }

@@ -21,12 +21,12 @@ public class TicketPriceTest extends TestBase{
         timetablePage.gotoTimetablePage();
         timetablePage.gotoCheckPriceLink(Constant.DA_NANG, Constant.SAI_GON);
 
-        Assert.assertEquals(ticketPricePage.getHS(),Constant.HS,"Cell not displayed as expected");
-        Assert.assertEquals(ticketPricePage.getSS(),Constant.SS,"Cell not displayed as expected");
-        Assert.assertEquals(ticketPricePage.getSSC(),Constant.SSC,"Cell not displayed as expected");
-        Assert.assertEquals(ticketPricePage.getHB(),Constant.HB,"Cell not displayed as expected");
-        Assert.assertEquals(ticketPricePage.getSB(),Constant.SB,"Cell not displayed as expected");
-        Assert.assertEquals(ticketPricePage.getSBC(),Constant.SBC,"Cell not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getHS(),Constant.DATA_TEST_HS,"Cell not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getSS(),Constant.DATA_TEST_SS,"Cell not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getSSC(),Constant.DATA_TEST_SSC,"Cell not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getHB(),Constant.DATA_TEST_HB,"Cell not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getSB(),Constant.DATA_TEST_SB,"Cell not displayed as expected");
+        Assert.assertEquals(ticketPricePage.getSBC(),Constant.DATA_TEST_SBC,"Cell not displayed as expected");
 
         homePage.Logout();
     }

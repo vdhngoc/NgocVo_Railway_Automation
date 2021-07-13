@@ -20,73 +20,73 @@ public class GeneralPage {
     private final By lblWelcomeMsg = By.xpath("//div[@class='account']/strong");
 
     //Elements
-    protected WebElement getTabLogin(){
+    protected WebElement getLoginElement(){
         return Constant.WEBDRIVER.findElement(tabLogin);
     }
 
-    protected WebElement getTabLogout(){
+    protected WebElement getLogoutElement(){
         return Constant.WEBDRIVER.findElement(tabLogout);
     }
 
-    protected WebElement getTabBookTicket() { return Constant.WEBDRIVER.findElement(tabBookTicket); }
+    protected WebElement getBookTicketElement() { return Constant.WEBDRIVER.findElement(tabBookTicket); }
 
-    protected WebElement getTabContact(){
+    protected WebElement getContactElement(){
         return Constant.WEBDRIVER.findElement(tabContact);
     }
 
-    protected WebElement getTabRegister(){
+    protected WebElement getRegisterElement(){
         return Constant.WEBDRIVER.findElement(tabRegister);
     }
 
-    protected WebElement getTabChangePassword(){ return Constant.WEBDRIVER.findElement(tabChangePassword); }
+    protected WebElement getChangePasswordElement(){ return Constant.WEBDRIVER.findElement(tabChangePassword); }
 
-    protected WebElement getLblWelcomeMsg(){
+    protected WebElement getWelcomeMsgElement(){
         return Constant.WEBDRIVER.findElement(lblWelcomeMsg);
     }
 
-    protected WebElement getTabMyTicket(){
+    protected WebElement getMyTicketElement(){
         return Constant.WEBDRIVER.findElement(tabMyTicket);
     }
 
-    protected WebElement getTabTimetable(){
+    protected WebElement getTimetableElement(){
         return Constant.WEBDRIVER.findElement(tabTimetable);
     }
 
 
     //Methods
     public String getWelcomeMsg() {
-        return this.getLblWelcomeMsg().getText();
+        return this.getWelcomeMsgElement().getText();
     }
 
     public LoginPage gotoLoginPage() {
-        this.getTabLogin().click();
+        this.getLoginElement().click();
         return new LoginPage();
     }
 
     public BookTicketPage gotoBookTicketPage() {
-        this.getTabBookTicket().click();
+        this.getBookTicketElement().click();
         return new BookTicketPage();
     }
 
-    public void gotoContactPage() { this.getTabContact().click(); }
+    public void gotoContactPage() { this.getContactElement().click(); }
 
     public RegisterPage gotoRegisterPage() {
-        this.getTabRegister().click();
+        this.getRegisterElement().click();
         return new RegisterPage(); }
 
     public ChangePasswordPage gotoChangePasswordPage() {
-        this.getTabChangePassword().click();
+        this.getChangePasswordElement().click();
         return new ChangePasswordPage();
 
     }
 
     public TimetablePage gotoTimetablePage(){
-        this.getTabTimetable().click();
+        this.getTimetableElement().click();
         return new TimetablePage();
     }
 
     public MyTicketPage gotoMyTicketPage() {
-        this.getTabMyTicket().click();
+        this.getMyTicketElement().click();
         return new MyTicketPage();
     }
 
@@ -98,7 +98,7 @@ public class GeneralPage {
 
     public void Logout(){
         if (this.isLogoutTabExist()) {
-            this.getTabLogout().click();
+            this.getLogoutElement().click();
         }
     }
 

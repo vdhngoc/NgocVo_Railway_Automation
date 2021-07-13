@@ -12,20 +12,17 @@ public class MyTicketTest extends TestBase{
     public void TC16(){
         MyTicketPage myTicketPage = new MyTicketPage();
         homePage.open();
-
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.gotoBookTicketPage();
-        bookTicketPage.bookTicket(Constant.BT_DEPART_DATE,
-                Constant.NHA_TRANG,
+        bookTicketPage.bookTicket(Constant.BOOK_TICKET_DEPART_DATE,
                 Constant.SAI_GON,
-                Constant.BT_SEAT_TYPE,
-                Constant.BT_TICKET_AMOUNT);
+                Constant.NHA_TRANG,
+                Constant.BOOK_TICKET_SEAT_TYPE,
+                Constant.BOOK_TICKET_TICKET_AMOUNT);
         myTicketPage.gotoMyTicketPage();
-        myTicketPage.cancelTicket(Constant.NHA_TRANG, Constant.SAI_GON);
-
+        myTicketPage.cancelTicket(Constant.SAI_GON, Constant.NHA_TRANG);
         Assert.assertFalse(myTicketPage.isRowDisplayed(),"Row still displayed");
-
         homePage.Logout();
     }
 }

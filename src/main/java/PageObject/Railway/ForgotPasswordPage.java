@@ -7,18 +7,18 @@ import org.openqa.selenium.WebElement;
 public class ForgotPasswordPage extends GeneralPage{
 
     //Locators
-    private final By txtEmail = By.xpath("//input[@id='email']");
+    private final By txtEmail = By.id("email");
     private final By btnForgotPassword = By.xpath("//input[@type='submit']");
 
     //Elements
-    public WebElement getTxtEmail() { return Constant.WEBDRIVER.findElement(txtEmail); }
+    public WebElement getEmailElement() { return Constant.WEBDRIVER.findElement(txtEmail); }
 
-    public WebElement getBtnForgotPassword() { return Constant.WEBDRIVER.findElement(btnForgotPassword); }
+    public WebElement getForgotPasswordElement() { return Constant.WEBDRIVER.findElement(btnForgotPassword); }
 
     //Methods
     public void submitEmail (String email)
     {
-        this.getTxtEmail().sendKeys(email);
-        this.getBtnForgotPassword().click();
+        this.getEmailElement().sendKeys(email);
+        this.getForgotPasswordElement().click();
     }
 }

@@ -10,12 +10,12 @@ public class BookTicketPage extends GeneralPage {
 
     //Locators
     private final By formBookTicket = By.xpath("//legend['Book ticket form']");
-    private final By cbbDepartDate = By.xpath("//select[@name='Date']");
-    private final By cbbDepartFrom = By.xpath("//select[@name='DepartStation']");
-    private final By cbbArriveAt = By.xpath("//select[@name='ArriveStation']");
-    private final By cbbSeatType = By.xpath("//select[@name='SeatType']");
-    private final By cbbTicketAmount = By.xpath("//select[@name='TicketAmount']");
-    private final By btnBookTicket = By.xpath("//form//input[@value='Book ticket']");
+    private final By cbbDepartDate = By.name("Date");
+    private final By cbbDepartFrom = By.name("DepartStation");
+    private final By cbbArriveAt = By.name("ArriveStation");
+    private final By cbbSeatType = By.name("SeatType");
+    private final By cbbTicketAmount = By.name("TicketAmount");
+    private final By btnBookTicket = By.xpath("//input[@value='Book ticket']");
     private final By lblBookTicketSuccessMsg = By.xpath("//div[@id='content']/h1");
     private final By cellDepartDate = By.xpath("//table[@class='MyTable WideTable']/tbody/tr[1]/following-sibling::tr/td[4]");
     private final By cellDepartStation = By.xpath("//table[@class='MyTable WideTable']/tbody/tr[1]/following-sibling::tr/td[1]");
@@ -24,29 +24,29 @@ public class BookTicketPage extends GeneralPage {
     private final By cellTicketAmount = By.xpath("//table[@class='MyTable WideTable']/tbody/tr[1]/following-sibling::tr/td[7]");
 
     //Elements
-    public WebElement getCbbDepartDate() { return Constant.WEBDRIVER.findElement(cbbDepartDate); }
+    public WebElement getDepartDateElement() { return Utilities.FindElement(cbbDepartDate); }
 
-    public WebElement getCbbDepartFrom() { return Constant.WEBDRIVER.findElement(cbbDepartFrom); }
+    public WebElement getDepartFromElement() { return Utilities.FindElement(cbbDepartFrom); }
 
-    public WebElement getCbbArriveAt() { return Constant.WEBDRIVER.findElement(cbbArriveAt); }
+    public WebElement getArriveAtElement() { return Utilities.FindElement(cbbArriveAt); }
 
-    public WebElement getCbbSeatType() { return Constant.WEBDRIVER.findElement(cbbSeatType); }
+    public WebElement getSeatTypeElement() { return Utilities.FindElement(cbbSeatType); }
 
-    public WebElement getCbbTicketAmount() { return Constant.WEBDRIVER.findElement(cbbTicketAmount); }
+    public WebElement getTicketAmountElement() { return Utilities.FindElement(cbbTicketAmount); }
 
-    public WebElement getBtnBookTicket() { return Constant.WEBDRIVER.findElement(btnBookTicket); }
+    public WebElement getBookTicketElement() { return Utilities.FindElement(btnBookTicket); }
 
-    public WebElement getLblBookTicketSuccessMsg() { return Constant.WEBDRIVER.findElement(lblBookTicketSuccessMsg); }
+    public WebElement getBookTicketSuccessMsgElement() { return Utilities.FindElement(lblBookTicketSuccessMsg); }
 
-    public WebElement getCellDepartDate() { return Constant.WEBDRIVER.findElement(cellDepartDate); }
+    public WebElement getCellDepartDate() { return Utilities.FindElement(cellDepartDate); }
 
-    public WebElement getCellDepartStation() { return Constant.WEBDRIVER.findElement(cellDepartStation); }
+    public WebElement getCellDepartStation() { return Utilities.FindElement(cellDepartStation); }
 
-    public WebElement getCellArriveStation() { return Constant.WEBDRIVER.findElement(cellArriveStation); }
+    public WebElement getCellArriveStation() { return Utilities.FindElement(cellArriveStation); }
 
-    public WebElement getCellSeatType() { return Constant.WEBDRIVER.findElement(cellSeatType); }
+    public WebElement getCellSeatType() { return Utilities.FindElement(cellSeatType); }
 
-    public WebElement getCellTicketAmount() { return Constant.WEBDRIVER.findElement(cellTicketAmount); }
+    public WebElement getCellTicketAmount() { return Utilities.FindElement(cellTicketAmount); }
 
     //Methods
     public boolean isBookTicketFormExist(){
@@ -54,27 +54,27 @@ public class BookTicketPage extends GeneralPage {
     }
 
     public void getDepartDate(String value){
-        Select departDate = new Select(getCbbDepartDate());
+        Select departDate = new Select(getDepartDateElement());
         departDate.selectByVisibleText(value);
     }
 
     public void getDepartStation(String value){
-        Select departFrom = new Select(getCbbDepartFrom());
+        Select departFrom = new Select(getDepartFromElement());
         departFrom.selectByVisibleText(value);
     }
 
     public void getArriveStation(String value){
-        Select arriveAt = new Select(getCbbArriveAt());
+        Select arriveAt = new Select(getArriveAtElement());
         arriveAt.selectByVisibleText(value);
     }
 
     public void getSeatType(String value){
-        Select seatType = new Select(getCbbSeatType());
+        Select seatType = new Select(getSeatTypeElement());
         seatType.selectByVisibleText(value);
     }
 
     public void getTicketAmount(String value){
-        Select ticketAmount = new Select(getCbbTicketAmount());
+        Select ticketAmount = new Select(getTicketAmountElement());
         ticketAmount.selectByVisibleText(value);
     }
 
@@ -84,12 +84,12 @@ public class BookTicketPage extends GeneralPage {
         this.getArriveStation(arriveat);
         this.getSeatType(seattype);
         this.getTicketAmount(ticketamount);
-        Utilities.PageDownEnd();
-        this.getBtnBookTicket().click();
+        Utilities.ScrollIntoView(getBookTicketElement()) ;
+        this.getBookTicketElement().click();
     }
 
-    public String getBookticketSuccessMsg() {
-        return this.getLblBookTicketSuccessMsg().getText();
+    public String getBookTicketSuccessMsg() {
+        return this.getBookTicketSuccessMsgElement().getText();
     }
 
     public String getDepartDate() { return this.getCellDepartDate().getText(); }

@@ -1,5 +1,6 @@
 package PageObject.Railway;
 
+import Common.Common.Utilities;
 import Common.Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,25 +17,25 @@ public class LoginPage extends GeneralPage{
     //Elements
     public WebElement getUsernameElement()
     {
-        return Constant.WEBDRIVER.findElement(txtUsername);
+        return Utilities.FindElement(txtUsername);
     }
 
     public WebElement getPasswordElement()
     {
-        return Constant.WEBDRIVER.findElement(txtPassword);
+        return Utilities.FindElement(txtPassword);
     }
 
     public WebElement getLoginElement()
     {
-        return Constant.WEBDRIVER.findElement(btnLogin);
+        return Utilities.FindElement(btnLogin);
     }
 
     public WebElement getLoginErrorMsgElement()
     {
-        return Constant.WEBDRIVER.findElement(lblLoginErrorMsg);
+        return Utilities.FindElement(lblLoginErrorMsg);
     }
 
-    public WebElement getForgotPasswordElement() { return Constant.WEBDRIVER.findElement(linkForgotPassword); }
+    public WebElement getForgotPasswordElement() { return Utilities.FindElement(linkForgotPassword); }
 
     //Methods
     public boolean isLoginErrorMessageExist() { return Constant.WEBDRIVER.findElements(lblLoginErrorMsg).size() != 0 ; }

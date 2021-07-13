@@ -1,6 +1,6 @@
 package PageObject.Railway;
 
-import Common.Constant.Constant;
+import Common.Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,15 +14,15 @@ public class ChangePasswordPage extends GeneralPage{
     private final By lblChangePasswordErrorMessage = By.xpath("//p[@class='message error']");
 
     //Elements
-    public WebElement getCurrentPasswordElement() { return Constant.WEBDRIVER.findElement(txtCurrentPassword); }
+    public WebElement getCurrentPasswordElement() { return Utilities.FindElement(txtCurrentPassword); }
 
-    public WebElement getNewPasswordElement() { return Constant.WEBDRIVER.findElement(txtNewPassword); }
+    public WebElement getNewPasswordElement() { return Utilities.FindElement(txtNewPassword); }
 
-    public WebElement getConfirmPasswordElement() { return Constant.WEBDRIVER.findElement(txtConfirmPassword); }
+    public WebElement getConfirmPasswordElement() { return Utilities.FindElement(txtConfirmPassword); }
 
-    public WebElement getChangePasswordElement() { return Constant.WEBDRIVER.findElement(btnChangePassword); }
+    public WebElement getChangePasswordElement() { return Utilities.FindElement(btnChangePassword); }
 
-    public WebElement getChangePasswordErrorMsgElement() { return Constant.WEBDRIVER.findElement(lblChangePasswordErrorMessage); }
+    public WebElement getChangePasswordErrorMsgElement() { return Utilities.FindElement(lblChangePasswordErrorMessage); }
 
     //Methods
     public void changePassword (String currentpassword, String newpassword, String confirmpassword)

@@ -84,8 +84,7 @@ public class BookTicketPage extends GeneralPage {
         this.getArriveStation(arriveat);
         this.getSeatType(seattype);
         this.getTicketAmount(ticketamount);
-        Utilities.ScrollIntoView(getBookTicketElement()) ;
-        this.getBookTicketElement().click();
+        Utilities.ScrollAndClickIntoView(getBookTicketElement()) ;
     }
 
     public String getBookTicketSuccessMsg() {

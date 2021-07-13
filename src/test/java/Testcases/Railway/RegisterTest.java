@@ -1,5 +1,6 @@
 package Testcases.Railway;
 
+import Common.Common.Utilities;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import Common.Constant.Constant;
@@ -22,6 +23,7 @@ public class RegisterTest extends TestBase{
         registerPage.register(Constant.REGISTER_EMAIL, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSPORT);
         String actualMsg = registerPage.getRegisterSuccessMessage();
         String expectedMsg = Constant.MSG_REGISTER_SUCCESS;
+        Assert.assertTrue(Utilities.CheckPageOpened(Constant.REGISTER_CONFIRM),"Page is not displayed");
         Assert.assertEquals(actualMsg, expectedMsg, "Register success message is not displayed as expected");
     }
 

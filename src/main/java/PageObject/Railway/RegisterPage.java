@@ -1,7 +1,6 @@
 package PageObject.Railway;
 
 import Common.Common.Utilities;
-import Common.Constant.Constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -19,23 +18,23 @@ public class RegisterPage extends GeneralPage{
     private final By lblRegisterInvalidPassportMsg = By.xpath("//label[@for='pid'] [@class='validation-error']");
 
     //Elements
-    public WebElement getRegisterEmailElement() { return Constant.WEBDRIVER.findElement(txtRegisterEmail); }
+    public WebElement getRegisterEmailElement() { return Utilities.FindElement(txtRegisterEmail); }
 
-    public WebElement getRegisterPasswordElement() { return Constant.WEBDRIVER.findElement(txtRegisterPassword); }
+    public WebElement getRegisterPasswordElement() { return Utilities.FindElement(txtRegisterPassword); }
 
-    public WebElement getRegisterConfirmPasswordElement() { return Constant.WEBDRIVER.findElement(txtRegisterConfirmPassword); }
+    public WebElement getRegisterConfirmPasswordElement() { return Utilities.FindElement(txtRegisterConfirmPassword); }
 
-    public WebElement getRegisterPassportElement() { return Constant.WEBDRIVER.findElement(txtRegisterPassport); }
+    public WebElement getRegisterPassportElement() { return Utilities.FindElement(txtRegisterPassport); }
 
-    public WebElement getRegisterElement() { return Constant.WEBDRIVER.findElement(btnRegister); }
+    public WebElement getRegisterElement() { return Utilities.FindElement(btnRegister); }
 
-    public WebElement getRegisterErrorMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterErrorMsg); }
+    public WebElement getRegisterErrorMsgElement() { return Utilities.FindElement(lblRegisterErrorMsg); }
 
-    public WebElement getRegisterSuccessMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterSuccessMsg); }
+    public WebElement getRegisterSuccessMsgElement() { return Utilities.FindElement(lblRegisterSuccessMsg); }
 
-    public WebElement getRegisterInvalidPasswordMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterInvalidPasswordMsg); }
+    public WebElement getRegisterInvalidPasswordMsgElement() { return Utilities.FindElement(lblRegisterInvalidPasswordMsg); }
 
-    public WebElement getRegisterInvalidPassportMsgElement() { return Constant.WEBDRIVER.findElement(lblRegisterInvalidPassportMsg); }
+    public WebElement getRegisterInvalidPassportMsgElement() { return Utilities.FindElement(lblRegisterInvalidPassportMsg); }
 
     //Methods
     public void register (String email, String password, String confirmpassword, String passport)

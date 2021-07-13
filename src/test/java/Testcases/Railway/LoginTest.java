@@ -1,5 +1,6 @@
 package Testcases.Railway;
 
+import Common.Common.Utilities;
 import com.google.common.base.Verify;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -54,7 +55,7 @@ public class LoginTest extends TestBase{
         homePage.gotoBookTicketPage();
         Verify.verify(loginPage.isLoginExist(),"Page is not displayed");
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-        Verify.verify(loginPage.isBookTicketExist(),"Page is not displayed");
+        Assert.assertTrue(Utilities.CheckPageOpened(Constant.BOOK_TICKET),"Page is not displayed");
         Verify.verify(bookTicketPage.isBookTicketFormExist(),"Form is not displayed");
     }
 
@@ -74,7 +75,7 @@ public class LoginTest extends TestBase{
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
         loginPage.gotoContactPage();
         loginPage.Logout();
-        Verify.verify(loginPage.isHomePageExist(),"Page is not displayed");
+        Assert.assertTrue(Utilities.CheckPageOpened(Constant.HOME),"Page is not displayed");
         Assert.assertFalse(loginPage.isLogoutExist(),"Logout tab still displayed");
     }
 
@@ -83,7 +84,7 @@ public class LoginTest extends TestBase{
         homePage.gotoRegisterPage();
         String email = Constant.REGISTER_EMAIL;
         registerPage.register(email, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSWORD, Constant.REGISTER_PASSPORT);
-        loginPage.gotoLoginPage();
+        registerPage.gotoLoginPage();
         loginPage.login(email, Constant.REGISTER_PASSWORD);
         Assert.assertTrue(loginPage.isLoginErrorMessageExist(),
                 "Error message is not displayed as expected");

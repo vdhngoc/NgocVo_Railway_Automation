@@ -1,5 +1,6 @@
 package PageObject.Railway;
 
+import Common.Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import Common.Constant.Constant;
@@ -11,47 +12,44 @@ public class GeneralPage {
     private final By tabLogout = By.xpath("//a[@href='/Account/Logout']");
     private final By tabBookTicket = By.xpath("//a[@href='/Page/BookTicketPage.cshtml']");
     private final By tabContact = By.xpath("//a[@href='/Page/Contact.cshtml']");
-    private final By tabHome = By.xpath("//a[@href='../']");
     private final By tabRegister = By.xpath("//a[@href='/Account/Register.cshtml']");
     private final By tabChangePassword = By.xpath("//a[@href='/Account/ChangePassword.cshtml']");
     private final By tabMyTicket = By.xpath("//a[@href='/Page/ManageTicket.cshtml']");
     private final By tabTimetable = By.xpath("//a[@href='TrainTimeListPage.cshtml']");
-
     private final By lblWelcomeMsg = By.xpath("//div[@class='account']/strong");
 
     //Elements
     protected WebElement getLoginElement(){
-        return Constant.WEBDRIVER.findElement(tabLogin);
+        return Utilities.FindElement(tabLogin);
     }
 
     protected WebElement getLogoutElement(){
-        return Constant.WEBDRIVER.findElement(tabLogout);
+        return Utilities.FindElement(tabLogout);
     }
 
-    protected WebElement getBookTicketElement() { return Constant.WEBDRIVER.findElement(tabBookTicket); }
+    protected WebElement getBookTicketElement() { return Utilities.FindElement(tabBookTicket); }
 
     protected WebElement getContactElement(){
-        return Constant.WEBDRIVER.findElement(tabContact);
+        return Utilities.FindElement(tabContact);
     }
 
     protected WebElement getRegisterElement(){
-        return Constant.WEBDRIVER.findElement(tabRegister);
+        return Utilities.FindElement(tabRegister);
     }
 
-    protected WebElement getChangePasswordElement(){ return Constant.WEBDRIVER.findElement(tabChangePassword); }
+    protected WebElement getChangePasswordElement(){ return Utilities.FindElement(tabChangePassword); }
 
     protected WebElement getWelcomeMsgElement(){
-        return Constant.WEBDRIVER.findElement(lblWelcomeMsg);
+        return Utilities.FindElement(lblWelcomeMsg);
     }
 
     protected WebElement getMyTicketElement(){
-        return Constant.WEBDRIVER.findElement(tabMyTicket);
+        return Utilities.FindElement(tabMyTicket);
     }
 
     protected WebElement getTimetableElement(){
-        return Constant.WEBDRIVER.findElement(tabTimetable);
+        return Utilities.FindElement(tabTimetable);
     }
-
 
     //Methods
     public String getWelcomeMsg() {
@@ -92,8 +90,6 @@ public class GeneralPage {
 
     public boolean isLogoutExist() { return Constant.WEBDRIVER.findElements(tabLogout).size() != 0 ; }
 
-    public boolean isHomePageExist() { return Constant.WEBDRIVER.findElements(tabHome).size() != 0 ; }
-
     public boolean isLogoutTabExist() { return Constant.WEBDRIVER.findElements(tabLogout).size() != 0; }
 
     public void Logout(){
@@ -105,10 +101,5 @@ public class GeneralPage {
     public boolean isLoginExist(){
         String pageTitle = Constant.WEBDRIVER.getTitle();
         return pageTitle.contains("Safe Railway - Login");
-    }
-
-    public boolean isBookTicketExist(){
-        String pageTitle = Constant.WEBDRIVER.getTitle();
-        return pageTitle.contains("Safe Railway - Book Ticket");
     }
 }

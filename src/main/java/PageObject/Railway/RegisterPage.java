@@ -37,7 +37,7 @@ public class RegisterPage extends GeneralPage{
     public WebElement getRegisterInvalidPassportMsgElement() { return Utilities.FindElement(lblRegisterInvalidPassportMsg); }
 
     //Methods
-    public void register (String email, String password, String confirmpassword, String passport)
+    public RegisterPage register (String email, String password, String confirmpassword, String passport)
     {
         Utilities.PageDownEnd();
         this.getRegisterEmailElement().sendKeys(email);
@@ -45,6 +45,7 @@ public class RegisterPage extends GeneralPage{
         this.getRegisterConfirmPasswordElement().sendKeys(confirmpassword);
         this.getRegisterPassportElement().sendKeys(passport);
         this.getRegisterElement().click();
+        return new RegisterPage();
     }
 
     public String getRegisterErrorMessage() { return getRegisterErrorMsgElement().getText(); }

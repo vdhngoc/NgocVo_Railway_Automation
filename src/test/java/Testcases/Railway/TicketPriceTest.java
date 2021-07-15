@@ -14,20 +14,16 @@ public class TicketPriceTest extends TestBase{
         TimetablePage timetablePage = new TimetablePage();
         TicketPricePage ticketPricePage = new TicketPricePage();
         homePage.open();
-
         homePage.gotoLoginPage();
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
-
         timetablePage.gotoTimetablePage();
-        timetablePage.gotoCheckPriceLink(Constant.DA_NANG, Constant.SAI_GON);
-
+        timetablePage.gotoCheckPriceLink(Constant.TICKET_PRICE_DEPART_STATION, Constant.TICKET_PRICE_ARRIVE_STATION);
         Assert.assertEquals(ticketPricePage.getHS(),Constant.DATA_TEST_HS,"Cell not displayed as expected");
         Assert.assertEquals(ticketPricePage.getSS(),Constant.DATA_TEST_SS,"Cell not displayed as expected");
         Assert.assertEquals(ticketPricePage.getSSC(),Constant.DATA_TEST_SSC,"Cell not displayed as expected");
         Assert.assertEquals(ticketPricePage.getHB(),Constant.DATA_TEST_HB,"Cell not displayed as expected");
         Assert.assertEquals(ticketPricePage.getSB(),Constant.DATA_TEST_SB,"Cell not displayed as expected");
         Assert.assertEquals(ticketPricePage.getSBC(),Constant.DATA_TEST_SBC,"Cell not displayed as expected");
-
         homePage.Logout();
     }
 }

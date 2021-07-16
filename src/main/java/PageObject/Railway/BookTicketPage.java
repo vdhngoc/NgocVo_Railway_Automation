@@ -4,7 +4,7 @@ import Common.Common.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import Common.Constant.Constant;
-import  org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Select;
 
 public class BookTicketPage extends GeneralPage {
 
@@ -87,6 +87,17 @@ public class BookTicketPage extends GeneralPage {
         Utilities.ScrollAndClickIntoView(getBookTicketElement()) ;
     }
 
+    public void bookTicketSeveralTimes( int times){
+        for (int i = 0;i<times; i++) {
+            this.bookTicket(Utilities.SetDepartDate(i+1),
+                            Constant.BOOK_TICKET_DEPART_STATION,
+                            Constant.BOOK_TICKET_ARRIVE_STATION,
+                            Constant.BOOK_TICKET_SEAT_TYPE,
+                            "1");
+            this.gotoBookTicketPage();
+        }
+    }
+
     public String getBookTicketSuccessMsg() {
         return this.getBookTicketSuccessMsgElement().getText();
     }
@@ -101,4 +112,19 @@ public class BookTicketPage extends GeneralPage {
 
     public String getTicketAmount() { return this.getCellTicketAmount().getText(); }
 
+    public WebElement getDepartFrom() {
+        Select select = new Select(getDepartFromElement());
+        return select.getFirstSelectedOption(); }
+
+    public String getSelectedDepartFrom(){
+       return this.getDepartFrom().getText();
+    }
+
+    public WebElement getArriveAt() {
+        Select select = new Select(getArriveAtElement());
+        return select.getFirstSelectedOption(); }
+
+    public String getSelectedArriveAt(){
+        return this.getArriveAt().getText();
+    }
 }

@@ -27,7 +27,7 @@ public class GeneralPage {
         return Utilities.FindElement(tabLogout);
     }
 
-    protected WebElement getBookTicketElement() { return Utilities.FindElement(tabBookTicket); }
+    protected WebElement getBookTicketTabElement() { return Utilities.FindElement(tabBookTicket); }
 
     protected WebElement getContactElement(){
         return Utilities.FindElement(tabContact);
@@ -62,7 +62,7 @@ public class GeneralPage {
     }
 
     public BookTicketPage gotoBookTicketPage() {
-        this.getBookTicketElement().click();
+        this.getBookTicketTabElement().click();
         return new BookTicketPage();
     }
 

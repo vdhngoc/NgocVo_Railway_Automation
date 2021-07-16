@@ -41,12 +41,12 @@ public class Utilities {
         return Constant.WEBDRIVER.getTitle().contains(pageName);
     }
 
-    public static String SetDepartDate() {
+    public static String SetDepartDate(int date) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
         Date dt = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(dt);
-        c.add(Calendar.DATE,Constant.NUMBER_OF_DATE);
+        c.add(Calendar.DATE, 4+date);
         dt = c.getTime();
         return dateFormat.format(dt);
     }

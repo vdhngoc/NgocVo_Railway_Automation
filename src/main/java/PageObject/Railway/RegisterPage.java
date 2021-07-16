@@ -39,11 +39,11 @@ public class RegisterPage extends GeneralPage{
     //Methods
     public RegisterPage register (String email, String password, String confirmpassword, String passport)
     {
-        Utilities.PageDownEnd();
         this.getRegisterEmailElement().sendKeys(email);
         this.getRegisterPasswordElement().sendKeys(password);
         this.getRegisterConfirmPasswordElement().sendKeys(confirmpassword);
         this.getRegisterPassportElement().sendKeys(passport);
+        Utilities.PageDownEnd();
         this.getRegisterElement().click();
         return new RegisterPage();
     }

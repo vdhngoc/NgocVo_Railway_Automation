@@ -23,13 +23,19 @@ public class Constant {
     public static final String REGISTER_CONFIRM = "Safe Railway - Registration Confirmation Page";
     public static final String FORGOT_PASSWORD = "Safe Railway - Forget Your Password?";
 
+<<<<<<< HEAD
     public static String BOOK_TICKET_DEPART_DATE = Utilities.SetDepartDate(1);
+=======
+    public static final int NUMBER_OF_DATE = 5;
+    public static String BOOK_TICKET_DEPART_DATE = Utilities.SetDepartDate();
+>>>>>>> b21bfabcda3a46a8836ba4764d6af32750baa365
     public static final String BOOK_TICKET_DEPART_STATION = "Sài Gòn";
     public static final String BOOK_TICKET_ARRIVE_STATION = "Nha Trang";
     public static final String BOOK_TICKET_SEAT_TYPE = "Soft seat with air conditioner";
     public static final String BOOK_TICKET_TICKET_AMOUNT = "5";
     public static final String TICKET_PRICE_DEPART_STATION = "Đà Nẵng";
     public static final String TICKET_PRICE_ARRIVE_STATION = "Sài Gòn";
+<<<<<<< HEAD
     public static final String TICKET_PRICE_DEPART_TIME = "8:00";
     public static final String CANCEL_TICKET_DEPART_STATION = "Sài Gòn";
     public static final String CANCEL_TICKET_ARRIVE_STATION = "Phan Thiết";
@@ -37,6 +43,11 @@ public class Constant {
     public static final String FILTER_TICKET_STATUS_IGNORE = "Ignore";
 
     public static int TIMES = 6;
+=======
+    public static final String CANCEL_TICKET_DEPART_STATION = "Sài Gòn";
+    public static final String CANCEL_TICKET_ARRIVE_STATION = "Phan Thiết";
+    public static final String CANCEL_TICKET_TICKET_AMOUNT = "1";
+>>>>>>> b21bfabcda3a46a8836ba4764d6af32750baa365
 
     public static final String DATA_TEST_HS = "310000";
     public static final String DATA_TEST_SS = "335000";

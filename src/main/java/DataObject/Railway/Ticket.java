@@ -20,5 +20,8 @@ public class Ticket {
         this.seattype = Constant.BOOK_TICKET_SEAT_TYPE;
         this.ticketamount = Constant.BOOK_TICKET_TICKET_AMOUNT;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b21bfabcda3a46a8836ba4764d6af32750baa365
 }
